@@ -12,4 +12,5 @@ Wymagania wstępne
 - [Selenium WebDriver](https://www.selenium.dev/)
 
 Zależności
+
   pip install -r requirements.txt
