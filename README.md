@@ -15,6 +15,7 @@ Zależności
 
   pip install -r requirements.txt
 
+
 Uruchomienie testów w konsoli
 
   run_tests.py
