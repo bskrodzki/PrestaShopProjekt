@@ -17,8 +17,6 @@ class BasketTest(BaseTest):
         self.blouse_page.click_white_color()
         product_price = self.blouse_page.remember_price_float()
         self.blouse_page.click_add_to_cart()
-        # tu sleep tylko po to żeby było widać wyskakujące okienko z komunikatem w przeglądarce
-        time.sleep(1)
         self.blouse_page.get_one_item()
         total_products_price = self.blouse_page.get_total_products_price()
         self.assertEqual(product_price, total_products_price)
@@ -38,8 +36,6 @@ class BasketTest(BaseTest):
         product_price = self.blouse_page.remember_price_float()
         self.blouse_page.click_plus_icon()
         self.blouse_page.click_add_to_cart()
-        # tu sleep tylko po to żeby było widać wyskakujące okienko z komunikatem w przeglądarce
-        time.sleep(1)
         self.blouse_page.get_two_items()
         total_products_price = self.blouse_page.get_total_products_price()
         self.assertEqual(product_price*2, total_products_price)

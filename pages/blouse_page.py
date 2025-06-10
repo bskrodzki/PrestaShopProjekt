@@ -16,7 +16,7 @@ class BlousePage(BasePage):
         self.driver.find_element(*BlousePageLocators.ADD_TO_CART).click()
 
     def get_one_item(self):
-        el = self.driver.find_element(*BlousePageLocators.QUANTITY_INFORMATION)
+        el = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(BlousePageLocators.QUANTITY_INFORMATION))
         assert "There is 1 item in your cart." in el.text, \
             f"Oczekiwany komunikat 'There is 1 item in your cart.', otrzymano: '{el.text}'"
 
@@ -25,12 +25,13 @@ class BlousePage(BasePage):
         element.click()
 
     def get_two_items(self):
-        el = self.driver.find_element(*BlousePageLocators.QUANTITY_INFORMATION_2)
+        el = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(BlousePageLocators.QUANTITY_INFORMATION_2))
         assert "2" in el.text, \
             f"Oczekiwana ilość produktów '2', otrzymano: '{el.text}'"
 
     def click_checkout_button(self):
-        self.driver.find_element(*BlousePageLocators.PROCEED_TO_CHECKOUT).click()
+        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(BlousePageLocators.PROCEED_TO_CHECKOUT))
+        element.click()
         return YourShoppingCardPage(self.driver)
 
     def remember_price(self):

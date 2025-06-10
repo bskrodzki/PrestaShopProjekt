@@ -11,7 +11,7 @@ class BaseTest(unittest.TestCase):
         self.driver.maximize_window()
         self.driver.get("https://automationpractice.pl/")
         self.home_page = HomePage(self.driver)
-        #self.driver.implicitly_wait(1000)
+        # self.driver.implicitly_wait(3000)
 
     def tearDown(self):
         self.driver.quit()

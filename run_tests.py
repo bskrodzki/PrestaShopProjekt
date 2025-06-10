@@ -1,10 +1,11 @@
 import unittest
+import xmlrunner
+
 from tests.basket_tests import BasketTest
 from tests.buying_tests import BuyingTest
 from tests.create_an_account_tests import CreateAnAccountTest
 from tests.log_in_tests import LogInTest
 from tests.search_tests import SearchTest
-import HtmlTestRunner
 
 """
 All tests
@@ -26,11 +27,6 @@ tests_for_run = [
 
 test_suite = unittest.TestSuite(tests_for_run)
 
-runner = HtmlTestRunner.HTMLTestRunner(
-    output='reports',
-    report_name='TestReport',
-    combine_reports=True,
-    add_timestamp=True
-)
-
-runner.run(test_suite)
+with open('reports/test-results.xml', 'wb') as output:
+    runner = xmlrunner.XMLTestRunner(output=output)
+    runner.run(test_suite)

@@ -21,8 +21,6 @@ class BuyingTest(BaseTest):
         self.blouse_page.click_white_color()
         product_price = self.blouse_page.remember_price()
         self.blouse_page.click_add_to_cart()
-        # tu sleep tylko po to żeby było widać wyskakujące okienko z komunikatem w przeglądarce
-        time.sleep(1)
         self.your_shopping_card_page = self.blouse_page.click_checkout_button()
         unit_price = self.your_shopping_card_page.get_unit_price()
         self.assertEqual(product_price, unit_price)
